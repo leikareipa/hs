@@ -1,0 +1,50 @@
+<section class="product-card" tabindex="0">
+
+    <div class="closer">
+    </div>
+
+    <div class="media">
+
+        {{ PRODUCT_THUMBNAIL }}
+
+    </div>
+
+    <div class="content">
+            
+        <header>
+
+            <div class="product-name" title="{{ PRODUCT_NAME }}">
+                {{ PRODUCT_NAME }}
+            </div>
+            
+            <div class="product-price {{ PRODUCT_PRICE_TENDENCY_CLASS_NAME }}">
+                <div class="price-per-unit initial">
+                    <span class="integer">{{ PRODUCT_INITIAL_PRICE_VALUE_INTEGER }}</span>
+                    <span class="fractional">{{ PRODUCT_INITIAL_PRICE_VALUE_FRACTIONAL }}</span>
+                </div>
+
+                <div class="price-per-unit current">
+                    <span class="integer">{{ PRODUCT_CURRENT_PRICE_VALUE_INTEGER }}</span>
+                    <span class="fractional">{{ PRODUCT_CURRENT_PRICE_VALUE_FRACTIONAL }}</span>
+                    <span class="unit">/{{ PRODUCT_CURRENT_PRICE_UNIT }}</span>
+                </div>
+
+                <div class="price-change">
+                    <span class="label">{{ PRODUCT_RELATIVE_PRICE_CHANGE }}</span>
+                    {{ PRODUCT_PRICE_TENDENCY_SYMBOL }}
+                </div>
+            </div>
+        
+        </header>
+
+        <div class="date-range">
+            ({{ PRODUCT_DATA_START_DATE }}&mdash;{{ PRODUCT_DATA_END_DATE }})
+        </div>
+
+        <div class="product-price-history">
+            {{ PRODUCT_PRICE_GRAPH }}
+        </div>
+
+    </div>
+
+</section>

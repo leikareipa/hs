@@ -1,0 +1,10 @@
+{
+    "description":"This is a sample of <a href='https://github.com/leikareipa/hs'>hs</a>",
+    "database":{"type":"file","baseDirectory":"./sample/local/files/"},
+    "stores":["k-market-erottaja"],
+    "products":[
+        {"id":"6410402023059","name":"Pirkka appelsiinitäysmehu 1l"},
+        {"id":"6410405170491","name":"Pirkka Luomu babypinaatti 65g"},
+        {"id":"6411300000494","name":"Paulig Juhla Mokka 500g suodatinjauhatus"}
+    ]
+}
