@@ -101,6 +101,10 @@ export const templates = {
             .replaceAll(
                 "{{ PRODUCT_NAME }}",
                 product.name
+            )
+            .replaceAll(
+                "{{ PRODUCT_THUMBNAIL }}",
+                templates["product-thumbnail.html"]({product})
             );
     },
     "product-card.html": function({product}) {

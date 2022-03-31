@@ -35,6 +35,12 @@ body > header {
 .product-card.unknown {
     cursor: default;
 }
+.product-card.unknown .content > .label {
+    color: var(--weak-color);
+    font-size: 90%;
+    margin-top: var(--vertical-element-spacing);
+    font-style: italic;
+}
 .product-card .content {
     display: flex;
     flex-direction: column;
@@ -200,9 +206,6 @@ body > header {
 }
 .product-card header .product-price.no-data .price-change {
     display: none;
-}
-.unknown-product {
-    margin-top: var(--huddle-margin-vertical);
 }
 @media only screen and (max-width: 410px) {
     body {
