@@ -1,7 +1,7 @@
 body {
     --max-card-width: 450px;
     --weak-color: gray;
-    --vertical-element-spacing: 6px;
+    --vertical-element-spacing: 7px;
     --huddle-margin-vertical: 20px;
     --huddle-margin-horizontal: 20px;
 }

@@ -17,7 +17,7 @@ export const templates = {
             return html + templates["product-card.html"]({product});
         }, "");
 
-        return readFileSync("./src/templates/index.template.html", "utf8")
+        return readFileSync("./src/templates/index.html", "utf8")
             .replaceAll(
                 "{{ PRODUCT_CARDS }}",
                 combinedCards
@@ -36,19 +36,19 @@ export const templates = {
             );
     },
     "script.js": function() {
-        return readFileSync("./src/templates/script.template.js", "utf8");
+        return readFileSync("./src/templates/script.js", "utf8");
     },
     "index.css": function() {
-        return readFileSync("./src/templates/index.template.css", "utf8");
+        return readFileSync("./src/templates/index.css", "utf8");
     },
     "fa-arrow-up.html": function() {
-        return readFileSync("./src/templates/fa-arrow-up.template.html", "utf8");
+        return readFileSync("./src/templates/fa-arrow-up.html", "utf8");
     },
     "fa-arrow-down.html": function() {
-        return readFileSync("./src/templates/fa-arrow-down.template.html", "utf8");
+        return readFileSync("./src/templates/fa-arrow-down.html", "utf8");
     },
     "product-thumbnail.html": function({product}) {
-        return readFileSync("./src/templates/product-thumbnail.template.html", "utf8")
+        return readFileSync("./src/templates/product-thumbnail.html", "utf8")
             .replaceAll(
                 "{{ PRODUCT_ID }}",
                 product.id
@@ -70,7 +70,7 @@ export const templates = {
                 return (`${relative_time_stamp(datum.timestamp)},${relative_price(datum.price)} ` + points);
             }, "");
             
-        return readFileSync("./src/templates/graph.template.html", "utf8")
+        return readFileSync("./src/templates/graph.html", "utf8")
             .replaceAll(
                 "{{ GRAPH_VIEWBOX }}",
                 `0 -5 100 110`
@@ -97,7 +97,7 @@ export const templates = {
             }
     },
     "product-card-placeholder.html": function({product} = {}) {
-        return readFileSync("./src/templates/product-card-placeholder.template.html", "utf8")
+        return readFileSync("./src/templates/product-card-placeholder.html", "utf8")
             .replaceAll(
                 "{{ PRODUCT_NAME }}",
                 product.name
@@ -136,7 +136,7 @@ export const templates = {
             );
         }
 
-        return readFileSync("./src/templates/product-card.template.html", "utf8")
+        return readFileSync("./src/templates/product-card.html", "utf8")
             .replaceAll(
                 "{{ PRODUCT_NAME }}",
                 product.name
@@ -207,6 +207,6 @@ export const templates = {
             );
     },
     "robots.txt": function() {
-        return readFileSync("./src/templates/robots.template.txt", "utf8");
+        return readFileSync("./src/templates/robots.txt", "utf8");
     },
 };
