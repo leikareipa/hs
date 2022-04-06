@@ -6,8 +6,8 @@
  */
 
 import * as fs from "fs";
-import {randomBytes} from "crypto";
 import {templates as htmlTemplate} from "./templates.mjs";
+import {csp} from "./csp.mjs";
 
 const inputFileName = (process.argv[2] || "./hs.json");
 
@@ -23,26 +23,17 @@ export const routes = {
             }
         }));
 
-        const nonces = {
-            inlineStyle: randomBytes(16).toString("hex"),
-            inlineScript: randomBytes(16).toString("hex"),
-        };
+        const {cspNonces, cspString} = csp();
+
         const html = htmlTemplate["index.html"]({
             products,
-            nonces,
+            nonces: cspNonces,
             description: (input.description || "No description"),
         });
 
         response.statusCode = 200;
         response.setHeader("Content-Type", "text/html; charset=utf-8");
-        response.setHeader("Content-Security-Policy",
-            "default-src 'self';"+
-            "font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;"+
-            "img-src 'self' https://public.keskofiles.com/f/k-ruoka/product/;"+
-            "script-src 'self' 'nonce-"+nonces.inlineStyle+"';"+
-            "style-src 'self' 'nonce-"+nonces.inlineStyle+"' https://fonts.googleapis.com;"+
-            "base-uri 'none';"
-        );
+        response.setHeader("Content-Security-Policy", cspString);
         response.end(html);
     },
     default: function(request, response) {
