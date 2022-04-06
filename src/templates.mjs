@@ -206,4 +206,7 @@ export const templates = {
                 date_string(latestDataElement.timestamp * 1000)
             );
     },
+    "robots.txt": function() {
+        return readFileSync("./src/templates/robots.template.txt", "utf8");
+    },
 };

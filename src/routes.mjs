@@ -12,6 +12,14 @@ import {csp} from "./csp.mjs";
 const inputFileName = (process.argv[2] || "./hs.json");
 
 export const routes = {
+    "/robots.txt": async function(request, response) {
+        const text = htmlTemplate["robots.txt"]();
+
+        response.statusCode = 200;
+        response.setHeader("Content-Type", "text/plain; charset=utf-8");
+        response.setHeader("Content-Security-Policy", csp().cspString);
+        response.end(text);
+    },
     "/": async function(request, response) {
         const input = JSON.parse(fs.readFileSync(inputFileName, "utf8"));
         const io = (await import(`./database-${input.database.type}.mjs`));
