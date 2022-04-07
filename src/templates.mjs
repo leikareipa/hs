@@ -28,7 +28,7 @@ export const templates = {
             )
             .replaceAll(
                 "{{ INLINE_JAVASCRIPT }}",
-                `<script nonce="${nonces.inlineScript}">${templates["script.js"]().replace(/\s+/g, " ")}</script>`
+                `<script nonce="${nonces.inlineScript}">"use strict";${templates["script.js"]().replace(/\s+/g, " ")}</script>`
             )
             .replace(
                 "{{ INLINE_CSS }}",
