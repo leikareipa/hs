@@ -17,8 +17,15 @@ export const routes = {
 
         response.statusCode = 200;
         response.setHeader("Content-Type", "text/plain; charset=utf-8");
-        response.setHeader("Content-Security-Policy", csp().cspString);
         response.end(text);
+    },
+    "/favicon.ico": async function(request, response) {
+        const iconData = htmlTemplate["favicon.ico"]();
+
+        response.statusCode = 200;
+        response.setHeader("Content-Type", "image/x-icon");
+        response.setHeader("Content-Length", iconData.length);
+        response.end(iconData);
     },
     "/": async function(request, response) {
         const input = JSON.parse(fs.readFileSync(inputFileName, "utf8"));

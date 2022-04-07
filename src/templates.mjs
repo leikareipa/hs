@@ -209,4 +209,7 @@ export const templates = {
     "robots.txt": function() {
         return readFileSync("./src/templates/robots.txt", "utf8");
     },
+    "favicon.ico": function() {
+        return readFileSync("./src/templates/favicon.ico", null);
+    },
 };
