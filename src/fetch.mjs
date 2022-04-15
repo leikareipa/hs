@@ -24,13 +24,18 @@ const inputFileName = (process.argv[2] || "./hs.json");
     {
         for (const product of input.products)
         {
-            const newData = {
-                ...await fetch_price(product, store),
-                date: new Date().toISOString().slice(0, "yyyy-mm-dd".length),
-                timestamp: Math.floor(Date.now() / 1000),
-            };
+            try {
+                const newData = {
+                    ...await fetch_price(product, store),
+                    date: new Date().toISOString().slice(0, "yyyy-mm-dd".length),
+                    timestamp: Math.floor(Date.now() / 1000),
+                };
 
-            await io.append_to_product_data({data: newData, product, store, input});
+                await io.append_to_product_data({data: newData, product, store, input});
+            }
+            catch (error) {
+                console.warn(`Failed to fetch the price of product ${product.id} at store ${store}:`, error);
+            }
         }
     }
 
@@ -48,8 +53,11 @@ async function fetch_price(product, store, cooldown = 3000)
 
     const page = await browser.newPage();
     await page.waitForTimeout(cooldown + (Math.random() * 2000));
-    await page.goto(`https://www.k-ruoka.fi/kauppa/tuote/${product.id}?kauppa=${store}`, {waitUntil: "networkidle2"});
-    const domPrice = await page.evaluate(()=>document.querySelector(".price-additional-info .reference").textContent);
+    await page.goto(`https://www.k-ruoka.fi/kauppa/tuote/${product.id}?kauppa=${store}`, {waitUntil: "networkidle0"});
+    const domPrice = await page.evaluate(()=>{
+        const priceEl = document.querySelector(".price-additional-info .reference");
+        return (priceEl? priceEl.textContent : undefined);
+    });
 
     if (typeof domPrice != "string") {
         throw new TypeError(`Expected the DOM price to be of type "string" but got "${typeof domPrice}"`);
