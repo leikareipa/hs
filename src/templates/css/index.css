@@ -126,10 +126,11 @@ body > header {
     align-items: flex-start;
     font-family: "Manrope";
     font-weight: bold;
+    position: relative;
 }
 .product-card header .product-price .price-per-unit.initial {
     color: var(--weak-color);
-    margin-right: 6px;
+    margin-right: 0.45em;
     position: relative;
 }
 .product-card header .product-price .price-per-unit.initial::before {
@@ -145,7 +146,7 @@ body > header {
     font-weight: 500;
 }
 .product-card header .product-price .price-per-unit.current {
-    margin-right: 12px;
+    margin-right: 0.45em;
 }
 .product-card header .product-price.up .price-per-unit.initial::after {
     border-color: inherit;
@@ -163,17 +164,23 @@ body > header {
     font-size: 50%;
     margin-left: 2px;
     height: 2em;
+    position: absolute;
+}
+.product-card header .price-per-unit .frac-unit-container {
+    position: relative;
 }
 .product-card header .price-per-unit .unit {
-    margin-left: 0;
+    margin-left: 2px;
     display: flex;
     align-items: flex-end;
     font-size: 50%;
     height: 2em;
+    width: 1em;
     color: dimgray;
-    transform: translateY(-1px);
     font-family: sans-serif;
     font-weight: normal;
+    text-transform: lowercase;
+    font-variant: small-caps;
 }
 .product-card header .price-change {
     font-weight: normal;
