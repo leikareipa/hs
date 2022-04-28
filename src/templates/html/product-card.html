@@ -1,6 +1,4 @@
 <section class="product-card" tabindex="0">
-    <div class="closer">
-    </div>
     <div class="media">
         {{ PRODUCT_THUMBNAIL }}
     </div>
@@ -10,18 +8,18 @@
                 {{ PRODUCT_NAME }}
             </div>
             <div class="product-price {{ PRODUCT_PRICE_TENDENCY_CLASS_NAME }}">
-                <div class="price-per-unit initial">
-                    <span class="integer">{{ PRODUCT_INITIAL_PRICE_VALUE_INTEGER }}</span>
-                    <span class="frac-unit-container">
-                        <span class="fractional">{{ PRODUCT_INITIAL_PRICE_VALUE_FRACTIONAL }}</span>
-                        <span class="unit">{{ PRODUCT_CURRENT_PRICE_UNIT }}</span>
-                    </span>
-                </div>
                 <div class="price-per-unit current">
                     <span class="integer">{{ PRODUCT_CURRENT_PRICE_VALUE_INTEGER }}</span>
                     <span class="frac-unit-container">
                         <span class="fractional">{{ PRODUCT_CURRENT_PRICE_VALUE_FRACTIONAL }}</span>
                         <span class="unit">{{ PRODUCT_INITIAL_PRICE_UNIT }}</span>
+                    </span>
+                </div>
+                <div class="price-per-unit initial">
+                    <span class="integer">{{ PRODUCT_INITIAL_PRICE_VALUE_INTEGER }}</span>
+                    <span class="frac-unit-container">
+                        <span class="fractional">{{ PRODUCT_INITIAL_PRICE_VALUE_FRACTIONAL }}</span>
+                        <span class="unit">{{ PRODUCT_CURRENT_PRICE_UNIT }}</span>
                     </span>
                 </div>
                 <div class="price-change">
