@@ -63,12 +63,11 @@ body > header {
     background-color: white;
     overflow: hidden;
     box-shadow: 0 0 0 1px lightgrey;
-    transition: transform 0.075s linear, box-shadow 0.075s linear, filter 1.5s linear;
-    filter: grayscale(1);
+    transition: transform 0.075s linear, box-shadow 0.075s linear;
 }
 .product-card:hover .media {
     filter: grayscale(0);
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, filter 0.075s linear;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .product-card .media img {
     width: 100%;
@@ -83,7 +82,7 @@ body > header {
 .product-card.selected .product-price-history {
     margin-top: var(--vertical-element-spacing);
     opacity: 1;
-    height: 1.75em;
+    height: 1.85em;
 }
 .product-card .product-price-history svg {
     width: 100%;
@@ -118,10 +117,10 @@ body > header {
     transition: margin 0.075s linear;
 }
 .product-card.selected header .product-price {
-    margin-top: -1.75em;
+    margin-top: -1.85em;
 }
 .product-card header .price-per-unit {
-    font-size: 175%;
+    font-size: 185%;
     display: flex;
     align-items: flex-start;
     font-family: "Manrope";
@@ -130,23 +129,19 @@ body > header {
 }
 .product-card header .product-price .price-per-unit.initial {
     color: var(--weak-color);
-    margin-right: 0.45em;
     position: relative;
-}
-.product-card header .product-price .price-per-unit.initial::before {
-    position: absolute;
-    border-bottom: 1px solid #202020;
-    content: "";
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: rotate(-35deg);
 }
 .product-card header .product-price .price-per-unit.initial {
     font-weight: 500;
+    margin-right: 0.7em;
 }
 .product-card header .product-price .price-per-unit.current {
-    margin-right: 0.45em;
+}
+.product-card header .product-price.up .price-per-unit.current {
+    color: red;
+}
+.product-card header .product-price.down .price-per-unit.current {
+    color: green;
 }
 .product-card header .product-price.up .price-per-unit.initial::after {
     border-color: inherit;
@@ -161,26 +156,30 @@ body > header {
     line-height: 1;
 }
 .product-card header .price-per-unit .fractional {
-    font-size: 50%;
-    margin-left: 2px;
+    font-size: 60%;
     height: 2em;
     position: absolute;
+    line-height: 1.2;
 }
 .product-card header .price-per-unit .frac-unit-container {
+    margin-left: 2px;
     position: relative;
 }
 .product-card header .price-per-unit .unit {
-    margin-left: 2px;
     display: flex;
     align-items: flex-end;
-    font-size: 50%;
-    height: 2em;
+    font-size: 40%;
+    height: 2.5em;
     width: 1em;
     color: dimgray;
     font-family: sans-serif;
     font-weight: normal;
     text-transform: lowercase;
     font-variant: small-caps;
+}
+.product-card header .price-per-unit .unit > .separator {
+    display: inline-block;
+    transform: translateY(1px);
 }
 .product-card header .price-change {
     font-weight: normal;
@@ -191,6 +190,7 @@ body > header {
     padding: 2px 4px;
     border-radius: 4px;
     font-size: 95%;
+    margin-right: 0.7em;
 }
 .product-card header .price-change .font-awesome-icon {
     margin-left: 2px;
@@ -223,9 +223,6 @@ body > header {
     .product-card .media {
         width: 90px;
         height: 90px;
-    }
-    .product-card header .price-change {
-        margin-left: auto;
     }
 }
 @media only screen and (max-width: 355px) {

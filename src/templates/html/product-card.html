@@ -8,23 +8,29 @@
                 {{ PRODUCT_NAME }}
             </div>
             <div class="product-price {{ PRODUCT_PRICE_TENDENCY_CLASS_NAME }}">
-                <div class="price-per-unit current">
-                    <span class="integer">{{ PRODUCT_CURRENT_PRICE_VALUE_INTEGER }}</span>
-                    <span class="frac-unit-container">
-                        <span class="fractional">{{ PRODUCT_CURRENT_PRICE_VALUE_FRACTIONAL }}</span>
-                        <span class="unit">{{ PRODUCT_INITIAL_PRICE_UNIT }}</span>
-                    </span>
-                </div>
                 <div class="price-per-unit initial">
                     <span class="integer">{{ PRODUCT_INITIAL_PRICE_VALUE_INTEGER }}</span>
                     <span class="frac-unit-container">
                         <span class="fractional">{{ PRODUCT_INITIAL_PRICE_VALUE_FRACTIONAL }}</span>
-                        <span class="unit">{{ PRODUCT_CURRENT_PRICE_UNIT }}</span>
+                        <span class="unit">
+                            <span class="separator">/</span>
+                            {{ PRODUCT_CURRENT_PRICE_UNIT }}
+                        </span>
                     </span>
                 </div>
                 <div class="price-change">
                     <span class="label">{{ PRODUCT_RELATIVE_PRICE_CHANGE }}</span>
                     {{ PRODUCT_PRICE_TENDENCY_SYMBOL }}
+                </div>
+                <div class="price-per-unit current">
+                    <span class="integer">{{ PRODUCT_CURRENT_PRICE_VALUE_INTEGER }}</span>
+                    <span class="frac-unit-container">
+                        <span class="fractional">{{ PRODUCT_CURRENT_PRICE_VALUE_FRACTIONAL }}</span>
+                        <span class="unit">
+                            <span class="separator">/</span>
+                            {{ PRODUCT_INITIAL_PRICE_UNIT }}
+                        </span>
+                    </span>
                 </div>
             </div>
         </header>
