@@ -7,8 +7,6 @@ The app lets you log prices on given products and view their changes over time.
 ![](./media/screenshots/alpha-1-desktop.png)\
 *Viewing logged data (randomly-generated prices).*
 
-Try a live sample of hs with mock data [here](https://hs-static-sample.herokuapp.com).
-
 ## Features
 - JavaScript + Node.js, with minimal root dependencies
 - Easy to log prices, automatable with e.g. cron
