@@ -41,12 +41,6 @@ export const templates = {
     "index.css": function() {
         return readFileSync("./src/templates/css/index.css", "utf8");
     },
-    "fa-arrow-up.html": function() {
-        return readFileSync("./src/templates/html/fa-arrow-up.html", "utf8");
-    },
-    "fa-arrow-down.html": function() {
-        return readFileSync("./src/templates/html/fa-arrow-down.html", "utf8");
-    },
     "product-thumbnail.html": function({product}) {
         return readFileSync("./src/templates/html/product-thumbnail.html", "utf8")
             .replaceAll(
@@ -132,7 +126,7 @@ export const templates = {
             return (
                 String(date.getDate())+"."+
                 String(date.getMonth() + 1)+"."+
-                String(date.getFullYear()).substr(-2, 2)
+                String(date.getFullYear())
             );
         }
 
@@ -183,7 +177,7 @@ export const templates = {
             )
             .replaceAll(
                 "{{ PRODUCT_RELATIVE_PRICE_CHANGE }}",
-                `${hasPriceChanged? Math.round(priceDiff) : "0"}%`
+                `${hasPriceChanged? Math.abs(Math.round(priceDiff)) : "0"}%`
             )
             .replaceAll(
                 "{{ PRODUCT_PRICE_TENDENCY_CLASS_NAME }}",

@@ -20,7 +20,6 @@
                 </div>
                 <div class="price-change">
                     <span class="label">{{ PRODUCT_RELATIVE_PRICE_CHANGE }}</span>
-                    {{ PRODUCT_PRICE_TENDENCY_SYMBOL }}
                 </div>
                 <div class="price-per-unit current">
                     <span class="integer">{{ PRODUCT_CURRENT_PRICE_VALUE_INTEGER }}</span>
@@ -35,7 +34,7 @@
             </div>
         </header>
         <div class="date-range">
-            ({{ PRODUCT_DATA_START_DATE }}&mdash;{{ PRODUCT_DATA_END_DATE }})
+            {{ PRODUCT_DATA_START_DATE }} &rarr; {{ PRODUCT_DATA_END_DATE }}
         </div>
         <div class="product-price-history">
             {{ PRODUCT_PRICE_GRAPH }}
