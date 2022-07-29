@@ -11,14 +11,15 @@ import {routes} from "./routes.mjs";
 
 const server = http.createServer(async function(request, response) {
     try {
-        await (routes[request.url] || routes["default"])(request, response);
+        const matchingRouteKey = Object.keys(routes).find(key=>new RegExp(key, "i").test(request.url));
+        await routes[matchingRouteKey](request, response)
     }
     catch (error) {
         console.error(error);
         response.statusCode = 500;
-        response.setHeader("Content-Type", "text/plain; charset=utf-8");
+        response.setHeader("Content-Type", "text/html; charset=utf-8");
         response.setHeader("Content-Security-Policy", "default-src 'self';");
-        response.end("Something went wrong while processing your request.");
+        response.end(`The following error was encountered while processing your request: ${error}`);
     }
 
     return;
