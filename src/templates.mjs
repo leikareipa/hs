@@ -177,7 +177,7 @@ export const templates = {
             )
             .replaceAll(
                 "{{ PRODUCT_RELATIVE_PRICE_CHANGE }}",
-                `${hasPriceChanged? Math.abs(Math.round(priceDiff)) : "0"}%`
+                `${hasPriceChanged? Math.round(priceDiff) : "0"}%`
             )
             .replaceAll(
                 "{{ PRODUCT_PRICE_TENDENCY_CLASS_NAME }}",
