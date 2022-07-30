@@ -1,20 +1,11 @@
 # hs
 
-A Node.js app for monitoring trends in retail prices at Kesko's grocery stores (e.g. K-Market).
+A Node.js app for monitoring retail prices at Kesko's grocery stores.
 
-The app lets you log prices on given products and view their changes over time.
+The app logs prices on products of your choosing into either JSON files or a PostgreSQL database, and provides a web interface for viewing their trends over time in your browser.
 
 ![](./media/screenshots/alpha-1-desktop.png)\
-*Viewing logged data (randomly-generated prices).*
-
-## Features
-- JavaScript + Node.js, with minimal root dependencies
-- Easy to log prices, automatable with e.g. cron
-- Data can be logged into a Postgres database or standalone JSON files
-- Clean, simple web interface for viewing logged data in a browser
-- Server-side rendering allows the web interface to work with or without JavaScript
-
-The app is currently work in progress.
+*Viewing logged data (randomly-generated prices)*
 
 ## Usage
 
