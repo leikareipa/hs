@@ -192,7 +192,7 @@ body > header {
     align-items: center;
     margin-right: 1.5rem;
     font-weight: bold;
-    padding-left: 1.5em;
+    padding-left: 1.3em;
     position: relative;
 }
 .product-card header .price-change::after {
